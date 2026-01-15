@@ -1,24 +1,47 @@
 <div class="container">
   <div class="row">
     <div class="col-md-4">
-      <form action="">
+      <div class="bg-primary p-4 text-center">
+       <h4>Using Reactive Forms</h4>
+      </div>
+      <form [formGroup]="signupform" (ngSubmit)="onsubmit()">
+        
         <div class="form-group">
           <label for="">Enter Name:</label>
-          <input type="text" name="name" class="form-control">
+          <input type="text" name="name" [class.is-invalid]="P['name'].invalid && P['name'].touched"class="form-control"  formControlName="name">
         </div>
+        <div class="alert alert-danger"
+            *ngIf="P['name'].invalid && P['name'].touched">
+            <div *ngIf="P['name'].errors && P['name'].errors['required']">
+                Please provide information
+            </div>
+          </div>
           <div class="form-group">
           <label for="">Enter Age:</label>
-          <input type="number" name="age" class="form-control">
+          <input type="number" name="age" [class.is-invalid]="P['age'].invalid && P['age'].touched" class="form-control" formControlName="age">
         </div>
-          <div class="form-group">
+        <div class="alert alert-danger" *ngIf="P['age'].invalid && P['age'].touched ">
+          <div *ngIf="P['age'].errors && P['age'].errors['required']">
+                Please provide information
+            </div>
+        </div>
+
+        <div class="form-group">
           <label for="">Enter Email:</label>
-          <input type="email" name="email" class="form-control">
+          <input type="email" name="email" [class.is-invalid]="P['email'].invalid && P['email'].touched" class="form-control" formControlName="email">
         </div>
-<br>
-<div class="d-grid">
-  <input type="submit" value="Submit" class="btn btn-primary">
-</div>
-      </form>
+        <div class="alert alert-danger" *ngIf="P['email'].invalid && P['email'].touched ">
+          <div *ngIf="P['email'].errors && P['email'].errors['required']">
+                Please provide information
+            </div>
+        </div>
+
+     <br>
+    <div class="d-grid">
+      <input type="submit" value="Submit" [class.disabled] = "signupform.invalid" class="btn btn-primary w-100">
     </div>
+    </form>
+    </div>
+    
   </div>
 </div>
