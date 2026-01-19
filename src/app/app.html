@@ -30,18 +30,28 @@
           <label for="">Enter Email:</label>
           <input type="email" name="email" [class.is-invalid]="P['email'].invalid && P['email'].touched" class="form-control" formControlName="email">
         </div>
-        <div class="alert alert-danger" *ngIf="P['email'].invalid && P['email'].touched ">
-          <div *ngIf="P['email'].errors && P['email'].errors['required']">
-                Please provide information
+          <div class="alert alert-danger" *ngIf="P['email'].invalid && P['email'].touched ">
+            <div *ngIf="P['email'].errors && P['email'].errors['required']">
+              Please provide information
             </div>
+                <div *ngIf="P['email'].errors && P['email'].errors['pattern']">
+                  Please enter a valid email address (e.g., user@example.com)
+                </div>
+          </div>
+        <label for="">Gender</label>
+        <div class="form-check">
+          <input type ="radio" class="form-check-input" formControlName="gender" name="gender" value="Male">
+          <label for="">Male</label>
         </div>
-
+         <div class="form-check">
+          <input type ="radio" class="form-check-input" formControlName="gender" name="gender" value="FeMale">
+          <label for="">FeMale</label>
+        </div>
      <br>
     <div class="d-grid">
       <input type="submit" value="Submit" [class.disabled] = "signupform.invalid" class="btn btn-primary w-100">
     </div>
     </form>
     </div>
-    
   </div>
 </div>

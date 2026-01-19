@@ -15,11 +15,15 @@ import { CommonModule } from "@angular/common";
 export class App {
   protected readonly title = signal('reactive-forms');
 
-  signupform =new FormGroup({
-    name:new FormControl('',[Validators.required]),
-    age:new FormControl('',[Validators.required]),
-    email:new FormControl('',[Validators.required]),
-  })
+  signupform = new FormGroup({
+    name: new FormControl('', [Validators.required]),
+    age: new FormControl('', [Validators.required]),
+    email: new FormControl('', [
+      Validators.required,
+      Validators.pattern(/^([a-zA-Z0-9_\.-]+)@([a-zA-Z0-9\.-]+)\.([a-zA-Z]{2,6})$/)
+    ]),
+    gender: new FormControl('',Validators.required)
+  });
   onsubmit(){
   console.log(this.signupform.value)
 }
