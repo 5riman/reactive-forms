@@ -14,7 +14,7 @@ import { CommonModule } from "@angular/common";
 
 export class App {
   protected readonly title = signal('reactive-forms');
-
+  hobbiesarray:string[] = ['calisthenics','PublicSpeaking','riding']
   signupform = new FormGroup({
     name: new FormControl('', [Validators.required]),
     age: new FormControl('', [Validators.required]),
@@ -22,7 +22,9 @@ export class App {
       Validators.required,
       Validators.pattern(/^([a-zA-Z0-9_\.-]+)@([a-zA-Z0-9\.-]+)\.([a-zA-Z]{2,6})$/)
     ]),
-    gender: new FormControl('',Validators.required)
+    gender: new FormControl('',[Validators.required]),
+    check: new FormControl(false,[Validators.requiredTrue])
+
   });
   onsubmit(){
   console.log(this.signupform.value)

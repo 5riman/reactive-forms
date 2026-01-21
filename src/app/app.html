@@ -47,6 +47,20 @@
           <input type ="radio" class="form-check-input" formControlName="gender" name="gender" value="FeMale">
           <label for="">FeMale</label>
         </div>
+        <div class="form-check">
+          <input type ="checkbox" class="form-check-input" formControlName="check" name="check">
+          <label for="">Terms and Conditons Accepted</label>
+        </div>
+         <label for="">Hobbies List:</label>
+         <div *ngFor="let Hobbies of hobbiesarray; let i = index;">
+
+          <label for="">
+          <input type ="checkbox" class="form-check-input" formControlName="check" [value]="Hobbies">
+          {{Hobbies}}
+          </label>
+         
+          
+        </div>
      <br>
     <div class="d-grid">
       <input type="submit" value="Submit" [class.disabled] = "signupform.invalid" class="btn btn-primary w-100">
