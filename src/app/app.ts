@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ReactiveFormsModule ,FormGroup,FormControl,Validators} from '@angular/forms';
+import { ReactiveFormsModule ,FormGroup,FormControl,Validators, FormArray} from '@angular/forms';
 import { CommonModule } from "@angular/common";
 
 
@@ -23,11 +23,16 @@ export class App {
       Validators.pattern(/^([a-zA-Z0-9_\.-]+)@([a-zA-Z0-9\.-]+)\.([a-zA-Z]{2,6})$/)
     ]),
     gender: new FormControl('',[Validators.required]),
-    check: new FormControl(false,[Validators.requiredTrue])
+    check: new FormControl(false,[Validators.requiredTrue]),
+    Hobbies:new FormArray([],[Validators.required])
 
   });
   onsubmit(){
   console.log(this.signupform.value)
+}
+
+onChange(e: any){
+  console.log(e.target.value)
 }
 get P(){
   return this.signupform.controls

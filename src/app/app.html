@@ -53,13 +53,10 @@
         </div>
          <label for="">Hobbies List:</label>
          <div *ngFor="let Hobbies of hobbiesarray; let i = index;">
-
           <label for="">
-          <input type ="checkbox" class="form-check-input" formControlName="check" [value]="Hobbies">
+          <input type ="checkbox" (change)="onChange($event)" class="form-check-input" formControlName="check" [value]="Hobbies">
           {{Hobbies}}
           </label>
-         
-          
         </div>
      <br>
     <div class="d-grid">
