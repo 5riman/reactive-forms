@@ -1,9 +1,7 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, Routes } from '@angular/router';
 import { ReactiveFormsModule ,FormGroup,FormControl,Validators, FormArray} from '@angular/forms';
 import { CommonModule } from "@angular/common";
-
-
 
 @Component({
   selector: 'app-root',
